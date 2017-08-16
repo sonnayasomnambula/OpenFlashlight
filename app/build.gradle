@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 16
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "org.sonnayasomnambula.openflashlight"
+        applicationId "org.sonnayasomnambula.openflashlightmini"
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 16
         versionCode 1
         versionName "1.0"
         setProperty("archivesBaseName", "OpenFlashlight-$versionName")
@@ -22,6 +22,4 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'gun0912.ted:tedpermission:1.0.3'
 }

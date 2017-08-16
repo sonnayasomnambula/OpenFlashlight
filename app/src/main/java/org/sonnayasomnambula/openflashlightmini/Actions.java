@@ -1,8 +1,8 @@
-package org.sonnayasomnambula.openflashlight;
+package org.sonnayasomnambula.openflashlightmini;
 
 final class Actions {
     public final static String MESSAGE =
-            "org.sonnayasomnambula.openflashlight.action.message";
+            "org.sonnayasomnambula.openflashlightmini.action.message";
 
     class Message {
         public final static String EXTRA_ID = "id";
@@ -14,5 +14,5 @@ final class Actions {
     }
 
     public final static String STOP =
-            "org.sonnayasomnambula.openflashlight.action.stop";
+            "org.sonnayasomnambula.openflashlightmini.action.stop";
 }

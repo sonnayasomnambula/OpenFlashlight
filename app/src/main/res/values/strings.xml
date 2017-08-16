@@ -1,17 +1,18 @@
 <resources>
-    <string name="app_name">Open Flashlight</string>
-    <string name="service_running">Open Flashlight is running</string>
+    <string name="app_name">Open Flashlight Mini</string>
+    <string name="service_running">Open Flashlight Mini is running</string>
     <string name="no_camera_found">No camera found</string>
     <string name="torch_mode_not_supported">Torch mode is not supported by camera</string>
     <string name="camera_permission_missing">Camera permission missing</string>
     <string name="press_to_turn_off">Press to turn the flashlight off</string>
-    <string name="device_admin_explanation">Being the device administrator is required to turn the flashlight off with the Power button.\nYou can tap [Cancel] and control Open Flashlight through its notification in the notification drawer.</string>
+    <string name="device_admin_explanation">Being the device administrator is required to turn the flashlight off with the Power button.\nYou can tap [Cancel] and control Open Flashlight Mini through its notification in the notification drawer.</string>
     <string name="on_permission_denied_message">We need the camera permission to manage the flashlight. If you reject permission, you can not use this application.\n\nPlease turn on camera permission at [Setting] > [Permissions]</string>
-    <string name="on_admin_received_message">Now we are the device admin! We can do anything with your device, muahaha! :-)\n\nIf you want to uninstall the application, first go to [Settings] > [Security] > [Device Administrators] and deselect Open Flashlight.</string>
-    <string name="on_admin_refused_message">Administrator rights has not been received.\n\nOpen Flashlight will newer ask you to activate the Device Administrator in the future.\nIf you suddenly change your mind, open the System settings and reset the Open Flashlight data to see the dialog again.</string>
+    <string name="on_admin_received_message">Now we are the device admin! We can do anything with your device, muahaha! :-)\n\nIf you want to uninstall the application, first go to [Settings] > [Security] > [Device Administrators] and deselect Open Flashlight Mini.</string>
+    <string name="on_admin_refused_message">Administrator rights has not been received.\n\nOpen Flashlight Mini will newer ask you to activate the Device Administrator in the future.\nIf you suddenly change your mind, open the System settings and reset the Open Flashlight Mini data to see the dialog again.</string>
     <string name="successfully">Successfully</string>
     <string name="unsuccessfully">Unsuccessfully</string>
     <string name="close">CLOSE</string>
     <string name="setting">SETTING</string>
     <string name="turning_off_instructions">Tap the notification or press the Power button twice to turn the flashlight off.</string>
+    <string name="try_openflashlight">If the app does not work correctly, please try Open Flashlight (not Mini). It uses the modern camera2 API and the Android Marshmallow permissions model.</string>
 </resources>

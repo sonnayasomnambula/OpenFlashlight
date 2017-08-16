@@ -1,4 +1,4 @@
-package org.sonnayasomnambula.openflashlight;
+package org.sonnayasomnambula.openflashlightmini;
 
 import android.hardware.Camera;
 

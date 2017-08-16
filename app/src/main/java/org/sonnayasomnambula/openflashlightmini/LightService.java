@@ -1,4 +1,4 @@
-package org.sonnayasomnambula.openflashlight;
+package org.sonnayasomnambula.openflashlightmini;
 
 
 import android.app.Notification;
@@ -11,13 +11,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.commonsware.android.lockme.AdminReceiver;
 
 public class LightService extends Service {
-    static final String LOG_TAG = "OF LightService";
+    static final String LOG_TAG = "OFM LightService";
 
     private Torch torch;
     private ActivityInformer activityInformer = new ActivityInformer();
@@ -87,12 +86,12 @@ public class LightService extends Service {
         PendingIntent pendingIntentStop = PendingIntent.getService(
                 getApplicationContext(), 0, intentStop, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        Notification notification = new NotificationCompat.Builder(getApplicationContext())
+        Notification notification = new Notification.Builder(getApplicationContext())
                 .setSmallIcon(R.mipmap.ic_stat_notify)
                 .setContentTitle(getResources().getString(R.string.app_name))
                 .setContentText(getResources().getString(R.string.press_to_turn_off))
                 .setContentIntent(pendingIntentStop)
-                .build();
+                .getNotification();
 
         startForeground(ID, notification);
     }
