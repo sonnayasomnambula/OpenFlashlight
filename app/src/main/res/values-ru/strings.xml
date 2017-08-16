@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Open Flashlight</string>
+    <string name="on_admin_refused_message">Права администратора не были получены.\n\nOpen Flashlight больше не будет запрашивать активацию Администратора устройства. Если вы вдруг передумаете, то для повторного появления диалога зайдите в Системные настройки и сотрите данные приложения.</string>
+    <string name="on_admin_received_message"><![CDATA[Так, у нас есть права администратора устройства… Что бы такого сделать нехорошего? :)\n\nЕсли вы захотите удалить приложение, сначала зайдите в [Настройки] > [Безопасность] > [Администраторы устройства] и снимите галочку напротив Open Flashlight.]]></string>
+    <string name="device_admin_explanation">Права администратора нужны, чтобы иметь возможность выключать фонарик с помощью аппаратной кнопки включения. Вы можете нажать Отмена и управлять приложением через его уведомление в панели уведомлений.</string>
+    <string name="press_to_turn_off">Нажмите, чтобы выключить фонарик</string>
+    <string name="service_running">Open Flashlight запущен</string>
+    <string name="successfully">Успешно</string>
+    <string name="torch_mode_not_supported">Режим фонарика не поддерживается камерой</string>
+    <string name="unsuccessfully">Неудачно</string>
+    <string name="camera_permission_missing">Нет разрешения использовать камеру</string>
+    <string name="no_camera_found">Камера не обнаружена</string>
+    <string name="on_permission_denied_message"><![CDATA[Для управления вспышкой нужен доступ к камере. Без него вы не сможете пользоваться приложением.\n\nПожалуйста, активируйте разрешение "Камера", нажав [Настройка] > [Разрешения].]]></string>
+    <string name="close">ЗАКРЫТЬ</string>
+    <string name="setting">НАСТРОЙКА</string>
+    <string name="turning_off_instructions">Для выключения коснитесь уведомления или выключите и включите дисплей устройства.</string>
+</resources>
