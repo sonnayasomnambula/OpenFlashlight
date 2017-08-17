@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Open Flashlight</string>
     <string name="on_admin_refused_message">Права администратора не были получены.\n\nOpen Flashlight больше не будет запрашивать активацию Администратора устройства. Если вы вдруг передумаете, то для повторного появления диалога зайдите в Системные настройки и сотрите данные приложения.</string>
@@ -15,4 +15,5 @@
     <string name="close">ЗАКРЫТЬ</string>
     <string name="setting">НАСТРОЙКА</string>
     <string name="turning_off_instructions">Для выключения коснитесь уведомления или выключите и включите дисплей устройства.</string>
+    <string name="about_to_stop">Open Flashlight Mini погашен</string>
 </resources>
