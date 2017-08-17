@@ -25,7 +25,7 @@ public class LightService extends Service {
     private DevicePolicyManager policyManager;
     private ComponentName adminReceiverName;
 
-    private enum ReasonForStopping {Undefined, NotificationTap, ScreenOn}
+    private enum ReasonForStopping {Undefined, NotificationTap, IconTap, ScreenOn}
     private ReasonForStopping reasonForStopping = ReasonForStopping.Undefined;
 
     @Override
@@ -113,7 +113,9 @@ public class LightService extends Service {
         }
 
         if (intent.getAction() == null && startId > 1) {
-            activityInformer.alreadyRunningMessage();
+            activityInformer.aboutToStopMessage();
+            reasonForStopping = ReasonForStopping.IconTap;
+            stopSelf();
         }
 
         return START_STICKY;
@@ -164,9 +166,9 @@ public class LightService extends Service {
             sendBroadcast(message);
         }
 
-        void alreadyRunningMessage() {
+        void aboutToStopMessage() {
             Intent message = new Intent(Actions.MESSAGE)
-                    .putExtra(Actions.Message.EXTRA_ID, Actions.Message.ID_ALREADY_RUNNING);
+                    .putExtra(Actions.Message.EXTRA_ID, Actions.Message.ID_ABOUT_TO_STOP);
             sendBroadcast(message);
         }
     }

@@ -40,8 +40,10 @@ public class MainActivity extends Activity {
                     showToastAndFinish(intent.getStringExtra(Actions.Message.EXTRA_TEXT));
                     break;
                 case Actions.Message.ID_STARTED_SUCCESSFULLY:
-                case Actions.Message.ID_ALREADY_RUNNING:
                     showToastAndFinish(getString(R.string.service_running));
+                    break;
+                case Actions.Message.ID_ABOUT_TO_STOP:
+                    showToastAndFinish(getString(R.string.about_to_stop));
                     break;
             }
         }
