@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Open Flashlight</string>
-    <string name="service_running">Open Flashlight is running</string>
-    <string name="about_to_stop">Open Flashlight is about to stop</string>
+    <string name="service_running">Flashlight is turned on</string>
+    <string name="about_to_stop">Flashlight is turned off</string>
     <string name="no_camera_found">No camera found</string>
     <string name="torch_mode_not_supported">Torch mode is not supported by camera</string>
     <string name="camera_permission_missing">Camera permission missing</string>
