@@ -8,7 +8,7 @@ android {
         applicationId "org.sonnayasomnambula.openflashlightmini"
         minSdkVersion 14
         targetSdkVersion 16
-        versionCode 1
+        versionCode 2
         versionName "1.1"
         setProperty("archivesBaseName", "OpenFlashlightMini-$versionName")
     }
