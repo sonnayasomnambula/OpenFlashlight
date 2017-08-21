@@ -1,7 +1,5 @@
 package org.sonnayasomnambula.openflashlightmini;
 
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
@@ -19,8 +17,6 @@ import android.widget.Toast;
 
 import com.commonsware.android.lockme.AdminReceiver;
 
-import java.util.ArrayList;
-
 
 public class MainActivity extends Activity {
     static final String LOG_TAG = "OFM MainActivity";
@@ -37,22 +33,25 @@ public class MainActivity extends Activity {
             final int id = intent.getIntExtra(Actions.Message.EXTRA_ID, 0);
             switch (id) {
                 case Actions.Message.ID_FAILED_TO_START:
-                    showToastAndFinish(intent.getStringExtra(Actions.Message.EXTRA_TEXT));
+                    showLongToastAndFinish(intent.getStringExtra(Actions.Message.EXTRA_TEXT));
                     break;
                 case Actions.Message.ID_STARTED_SUCCESSFULLY:
-                    showToastAndFinish(getString(R.string.service_running));
+                    showShortToastAndFinish(getString(R.string.service_running));
                     break;
                 case Actions.Message.ID_ABOUT_TO_STOP:
-                    showToastAndFinish(getString(R.string.about_to_stop));
+                    showShortToastAndFinish(getString(R.string.about_to_stop));
                     break;
             }
         }
     };
 
+    private void showShortToastAndFinish(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        if (readyToFinish) finish();
+    }
 
-    private void showToastAndFinish(String message) {
+    private void showLongToastAndFinish(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-        Log.d(LOG_TAG, "Message is \"" + message + "\" ready to finish is " + readyToFinish);
         if (readyToFinish) finish();
     }
 
