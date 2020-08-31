@@ -2,6 +2,8 @@ package org.sonnayasomnambula.openflashlight;
 
 
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
@@ -10,6 +12,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
@@ -80,6 +83,7 @@ public class LightService extends Service {
 
     private void showNotification() {
         final int ID = (int)System.currentTimeMillis();
+        final String CHANNEL_ID = "channel_main";
 
         Intent intentStop = new Intent(getApplicationContext(), LightService.class)
                 .setAction(Actions.STOP);
@@ -87,9 +91,17 @@ public class LightService extends Service {
         PendingIntent pendingIntentStop = PendingIntent.getService(
                 getApplicationContext(), 0, intentStop, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        Notification notification = new NotificationCompat.Builder(getApplicationContext())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
+            if (notificationChannel == null) {
+                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, getString(R.string.channel_name), NotificationManager.IMPORTANCE_DEFAULT);
+                notificationManager.createNotificationChannel(channel);
+            }
+        }
+
+        Notification notification = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_stat_notify)
-                .setContentTitle(getResources().getString(R.string.app_name))
                 .setContentText(getResources().getString(R.string.press_to_turn_off))
                 .setContentIntent(pendingIntentStop)
                 .build();
@@ -106,7 +118,7 @@ public class LightService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(LOG_TAG, "start " + startId + " action " + intent.getAction() );
+        Log.d(LOG_TAG, "start " + startId + " action " + intent.getAction());
 
         if (Actions.STOP.equals(intent.getAction())) {
             reasonForStopping = ReasonForStopping.NotificationTap;

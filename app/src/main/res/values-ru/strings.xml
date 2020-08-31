@@ -16,4 +16,5 @@
     <string name="setting">НАСТРОЙКА</string>
     <string name="turning_off_instructions">Для выключения коснитесь уведомления или выключите и включите дисплей устройства.</string>
     <string name="about_to_stop">Фонарик выключен</string>
+    <string name="channel_name">Уведомления OpenFlashlight</string>
 </resources>

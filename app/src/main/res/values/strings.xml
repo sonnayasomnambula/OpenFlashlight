@@ -15,4 +15,5 @@
     <string name="close">CLOSE</string>
     <string name="setting">SETTING</string>
     <string name="turning_off_instructions">Tap the notification or press the Power button twice to turn the flashlight off.</string>
+    <string name="channel_name">OpenFlashlight notifications</string>
 </resources>
