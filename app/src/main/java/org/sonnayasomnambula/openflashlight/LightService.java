@@ -6,9 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -17,17 +15,12 @@ import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
-import com.commonsware.android.lockme.AdminReceiver;
-
 public class LightService extends Service {
     static final String LOG_TAG = "OF LightService";
 
     private Torch torch;
     private ActivityInformer activityInformer = new ActivityInformer();
     private BroadcastReceiver screenWatcher;
-
-    private DevicePolicyManager policyManager;
-    private ComponentName adminReceiverName;
 
     private enum ReasonForStopping {Undefined, NotificationTap, IconTap, ScreenOn}
     private ReasonForStopping reasonForStopping = ReasonForStopping.Undefined;
@@ -50,7 +43,6 @@ public class LightService extends Service {
             }
             torch = Torch.create(appContext);
             torch.turnOn();
-            getPolicyManager();
             registerScreenWatcher();
             showNotification();
             activityInformer.successMessage();
@@ -59,11 +51,6 @@ public class LightService extends Service {
         } catch (Exception e) {
             stopWithMessage(e.getMessage());
         }
-    }
-
-    private void getPolicyManager() {
-        adminReceiverName = new ComponentName(getApplicationContext(), AdminReceiver.class);
-        policyManager = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
     }
 
     private void registerScreenWatcher() {
@@ -141,8 +128,6 @@ public class LightService extends Service {
         if (torch != null)
             torch.turnOff();
         unregisterScreenWatcher();
-        if (reasonForStopping == ReasonForStopping.ScreenOn)
-            sendDeviceToSleep();
         super.onDestroy();
     }
 
@@ -151,12 +136,6 @@ public class LightService extends Service {
 
         unregisterReceiver(screenWatcher);
         screenWatcher = null;
-    }
-
-
-    private void sendDeviceToSleep() {
-        if (policyManager.isAdminActive(adminReceiverName))
-            policyManager.lockNow();
     }
 
 
